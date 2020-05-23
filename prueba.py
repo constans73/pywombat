@@ -8,29 +8,26 @@ llave = int(llave)
 sentencia = sentencia.lower()
 letras = "abcdefghijklmnñopqrstuvwxyz"   #longitud 26
 	
+numero = 0
+frase_modificada =""
 
 
-
-
-for i in sentencia:
+while numero != len(sentencia):	
 	
-	salto = letras.index(i) + llave
-	sentencia = sentencia.replace (i,letras[salto])
-	
-
-
-
-print (sentencia)
-
-
-"""
-if salto > 26:
-			salto =  salto - 27
-
-			sentencia = sentencia.replace (i,letras[salto])
+	if sentencia[numero] in letras:
+		
+		salto = letras.index(sentencia[numero]) + llave				#se elige el salto que tiene que dar indice de
+																	#letras mas el salto por el usuario
+		if salto > 26:
+			salto = salto - 27										#si el salto excede el limite de 26
+			frase_modificada = frase_modificada + letras[salto]
 		else:
-			sentencia = sentencia.replace (i,letras[salto])
+			frase_modificada = frase_modificada + letras[salto]
+		
+	else:
 
-"""
+		frase_modificada = frase_modificada + sentencia[numero]		#si nes caracter de letras se queda igual
 
-#tercera modificacion
+	numero += 1
+
+print (frase_modificada)
